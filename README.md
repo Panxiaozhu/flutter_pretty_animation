@@ -14,3 +14,12 @@
  |heartStrokeWidth|未点赞状态心形的描边宽度 |
 
 <img src="https://user-images.githubusercontent.com/12110768/120103855-33924580-c184-11eb-8fe8-1ed0c18e1540.gif" width="232" height="426" >
+
+## AnimationDiscreteWidget
+
+
+ |参数 |说明|
+ | -------------|--------------|
+ |width| 动画区域宽|
+ |height| 动画区域高|
+ <img src="https://user-images.githubusercontent.com/12110768/120103855-33924580-c184-11eb-8fe8-1ed0c18e1540.gif" width="232" height="426" >
