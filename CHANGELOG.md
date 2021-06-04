@@ -1,3 +1,8 @@
-## [0.0.1] - TODO: Add release date.
-
-* TODO: Describe initial release.
+## [0.0.4] - TODO: 2021-5-30.
+添加发散动画
+## [0.0.3] - TODO: 2021-5-30.
+修改demo
+## [0.0.2] - TODO: 2021-5-30.
+点赞/取消动画
+## [0.0.1] - TODO: 2021-5-21
+组合动画
