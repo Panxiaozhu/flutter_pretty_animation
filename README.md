@@ -17,9 +17,11 @@
 
 ## AnimationDiscreteWidget
 
-
  |参数 |说明|
  | -------------|--------------|
  |width| 动画区域宽|
  |height| 动画区域高|
+ |milliseconds| 动画刷出频率|
+ |IconData| material icon|
+
  <img src="https://raw.githubusercontent.com/Panxiaozhu/flutter_pretty_animation/master/gif/BBDs.gif" width="232" height="426" >

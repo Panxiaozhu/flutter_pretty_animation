@@ -3,8 +3,10 @@ part of flutter_pretty_animation;
 class AnimationDiscreteWidget extends StatefulWidget{
   double width;
   double height;
+  int milliseconds;
+  IconData child;
 
-  AnimationDiscreteWidget({this.width=768, this.height=1024});
+  AnimationDiscreteWidget(this.child,{this.width=768, this.height=1024,this.milliseconds=200});
 
   @override
   State<StatefulWidget> createState() {
@@ -16,20 +18,24 @@ class AnimationDiscreteWidget extends StatefulWidget{
 
 class AnimationDiscreteWidgetState extends State<AnimationDiscreteWidget>{
   List<Widget> childs=[];
-  var timeout = const Duration(milliseconds: 300);
+  var timeout;
+  AnimationDiscreteWidgetState();
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
+    timeout=Duration(milliseconds:widget.milliseconds);
+
     Timer.periodic(timeout, (timer) {
       //callback function
-      if (childs.length > 12) {
+      if (childs.length > 20) {
         childs.removeAt(0);
       }
-      childs.add(AnimationDiscrete(key: UniqueKey(),width: widget.width,height: widget.height,));
+      childs.add(AnimationDiscrete(widget.child,key: UniqueKey(),width: widget.width,height: widget.height,));
       setState(() {});
     });
+
   }
 
   @override
@@ -40,12 +46,20 @@ class AnimationDiscreteWidgetState extends State<AnimationDiscreteWidget>{
     );
   }
 
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+
+  }
+
 }
 
 class AnimationDiscrete extends StatefulWidget{
   double width;
   double height;
-  AnimationDiscrete({Key key,this.width, this.height}) : super(key: key);
+  IconData child;
+  AnimationDiscrete(this.child,{Key key,this.width, this.height}) : super(key: key);
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
@@ -61,6 +75,7 @@ class AnimationDiscreteState extends State<AnimationDiscrete> with TickerProvide
   Size sizex1;
   Size sizex2;
   Size sizex3;
+
   List<Color> colorList=[Colors.red,Colors.blue,Colors.grey,Colors.orange,
     Colors.green,Colors.amber,Colors.blueGrey,Colors.brown,Colors.black87,Colors.purple];
   Color color;
@@ -74,16 +89,6 @@ class AnimationDiscreteState extends State<AnimationDiscrete> with TickerProvide
     likeController = AnimationController(duration: Duration(milliseconds: 3000), vsync: this); //AnimationController
     likeAnimation=CurvedAnimation(parent: likeController, curve: Curves.easeOutCirc);
     likeController.forward();
-
-    // likeController.addStatusListener((status) {
-    //   if(status == AnimationStatus.completed){
-    //     likeController.reset();
-    //     setState(() {
-    //
-    //     });
-    //   }
-    // });
-
   }
 
   void init(){
@@ -109,9 +114,7 @@ class AnimationDiscreteState extends State<AnimationDiscrete> with TickerProvide
                    top:getY(likeAnimation.value),
                    child: Opacity(
                       opacity: 1-likeAnimation.value,
-                      child: Icon(Icons.favorite,
-                          color: color,
-                          size: 80),
+                      child: Icon(widget.child,size: 60,color: color,)
                    )
                );
              },
@@ -121,6 +124,7 @@ class AnimationDiscreteState extends State<AnimationDiscrete> with TickerProvide
        ),
     );
   }
+
 
   double getX(double ss){
     double t=ss;
@@ -132,5 +136,13 @@ class AnimationDiscreteState extends State<AnimationDiscrete> with TickerProvide
     return (1-t)*((1-t)*sizex0.height+t*sizex1.height)+t*((1-t)*sizex1.height+t*sizex2.height);
   }
 
+   @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    likeController.dispose();
+   // likeController=null;
+   // likeAnimation.c
+  }
 
 }

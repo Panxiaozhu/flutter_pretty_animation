@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_pretty_animation/flutter_pretty_animation.dart';
@@ -13,11 +11,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'FlutterPretty Animation',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Animation Group'),
+      home: MyHomePage(title: 'FlutterPretty Animation'),
     );
   }
 }
@@ -25,7 +23,6 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
   final String title;
-
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -37,7 +34,6 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-
 
   }
 
@@ -70,7 +66,8 @@ class _MyHomePageState extends State<MyHomePage> {
       //
       //     ]
       // ),
-       AnimationDiscreteWidget(width: 400,height: 650,)
+
+       AnimationDiscreteWidget(Icons.ac_unit_outlined,width: 400,height: 650,)
 
     );
   }
