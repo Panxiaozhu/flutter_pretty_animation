@@ -3,7 +3,7 @@
 ## AnimationGroupWidget
 传入一个widget数组，横向排序，随机发散收拢
 
-<img src="https://user-images.githubusercontent.com/12110768/120103854-32611880-c184-11eb-912d-23bef2f333cb.gif" width="232" height="426" >
+<img src="https://user-images.githubusercontent.com/12110768/122944234-37dc0800-d3aa-11eb-8d39-c95b759a5c0f.gif" width="232" height="426" >
 
 ## AnimationlikeWidget
 
@@ -13,7 +13,7 @@
  |isLike| 初始化状态，true：已点赞，false：未点赞|
  |heartStrokeWidth|未点赞状态心形的描边宽度 |
 
-<img src="https://user-images.githubusercontent.com/12110768/120103855-33924580-c184-11eb-8fe8-1ed0c18e1540.gif" width="232" height="426" >
+<img src="https://user-images.githubusercontent.com/12110768/122944230-37437180-d3aa-11eb-83b0-df99d6ab336f.gif" width="232" height="426" >
 
 ## AnimationDiscreteWidget
 
@@ -24,7 +24,7 @@
  |milliseconds| 动画刷出频率|
  |IconData| material icon|
 
- <img src="https://raw.githubusercontent.com/Panxiaozhu/flutter_pretty_animation/master/gif/BBDs.gif" width="232" height="426" >
+ <img src="https://user-images.githubusercontent.com/12110768/122944447-6b1e9700-d3aa-11eb-86c7-0a3c37671ccb.gif" width="232" height="426" >
 
  ## MultipleFabWidget
 
@@ -35,4 +35,4 @@
   |verticalSpace| 高间距|
   |rightSpace| 右边距离|
 
-  <img src="https://raw.githubusercontent.com/Panxiaozhu/flutter_pretty_animation/master/gif/tis.gif" width="232" height="426" >
+  <img src="https://user-images.githubusercontent.com/12110768/122944217-3579ae00-d3aa-11eb-8976-a1d9497e5d60.gif" width="232" height="426" >
