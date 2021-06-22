@@ -35,4 +35,4 @@
   |verticalSpace| 高间距|
   |rightSpace| 右边距离|
 
-  <img src="https://raw.githubusercontent.com/Panxiaozhu/flutter_pretty_animation/master/gif/BBDs.gif" width="232" height="426" >
+  <img src="https://raw.githubusercontent.com/Panxiaozhu/flutter_pretty_animation/master/gif/tis.gif" width="232" height="426" >
