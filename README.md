@@ -1,6 +1,6 @@
 # flutter_pretty_animation
 漂亮的动画库
-
+[pub](https://pub.dev/packages/flutter_pretty_animation)
 ## AnimationGroupWidget
 传入一个widget数组，横向排序，随机发散收拢
 

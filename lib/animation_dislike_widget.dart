@@ -167,8 +167,6 @@ class AnimationDislikePaint extends CustomPainter{
     path.cubicTo(centerX/7, centerY*10/15, centerX*5/7, 0, centerX, centerY*2/5);
     path.cubicTo(centerX*9/7, 0, centerX*13/7, centerY*2/3, centerX, centerY);
 
-
-
     Paint linePaint=new Paint();
     linePaint.strokeWidth=2;
     linePaint.color=this.color;
