@@ -56,10 +56,10 @@ class AnimationDiscreteWidgetState extends State<AnimationDiscreteWidget>{
 }
 
 class AnimationDiscrete extends StatefulWidget{
-  double width;
-  double height;
-  IconData child;
-  AnimationDiscrete(this.child,{Key key,this.width, this.height}) : super(key: key);
+  double  width;
+  double   height;
+  IconData ?child;
+  AnimationDiscrete(this.child,{Key ?key,this.width=768, this.height=1024}) : super(key: key);
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
@@ -68,17 +68,17 @@ class AnimationDiscrete extends StatefulWidget{
 }
 
 class AnimationDiscreteState extends State<AnimationDiscrete> with TickerProviderStateMixin {
-  AnimationController likeController;
-  CurvedAnimation  likeAnimation;
+  late AnimationController likeController;
+  late CurvedAnimation likeAnimation;
   Random colorRandom=new Random();
-  Size sizex0;
-  Size sizex1;
-  Size sizex2;
-  Size sizex3;
+  late Size sizex0;
+  late Size sizex1;
+  late Size sizex2;
+  late Size sizex3;
 
   List<Color> colorList=[Colors.red,Colors.blue,Colors.grey,Colors.orange,
     Colors.green,Colors.amber,Colors.blueGrey,Colors.brown,Colors.black87,Colors.purple];
-  Color color;
+  Color? color;
   @override
   void initState() {
     // TODO: implement initState
@@ -108,7 +108,7 @@ class AnimationDiscreteState extends State<AnimationDiscrete> with TickerProvide
          children: [
            AnimatedBuilder(
              animation: likeAnimation,
-             builder: (BuildContext ctx, Widget child){
+             builder: (BuildContext ctx, Widget ? child){
                return new Positioned(
                    left:getX(likeAnimation.value),
                    top:getY(likeAnimation.value),

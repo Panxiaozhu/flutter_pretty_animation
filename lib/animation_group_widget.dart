@@ -19,11 +19,11 @@ class AnimationGroupWidget extends StatefulWidget {
 class AnimationGroupWidgetState extends State<AnimationGroupWidget> with TickerProviderStateMixin  {
 
   GlobalKey anchorKey = GlobalKey();
-  AnimationController logoController;
-  Animation<double> animationLogo;
+ late AnimationController logoController;
+  late Animation<double> animationLogo;
 
-  AnimationController titleController;
-  Animation animationTitle;
+  late AnimationController titleController;
+  late Animation<double> animationTitle;
 
   Random randomx=new Random();
   Random randomy=new Random();
@@ -39,8 +39,8 @@ class AnimationGroupWidgetState extends State<AnimationGroupWidget> with TickerP
   //变动的位置
   List<double> dx=[];
   List<double> dy=[];
-  double screenWidth;
-  double screenHeight;
+  late double screenWidth;
+  late double screenHeight;
   @override
   void initState() {
     // TODO: implement initState
@@ -97,7 +97,7 @@ class AnimationGroupWidgetState extends State<AnimationGroupWidget> with TickerP
       backgroundColor: Colors.white.withAlpha(0),
       body: AnimatedBuilder(
           animation: animationTitle,
-          builder: (BuildContext context, Widget child) {
+          builder: (BuildContext context, Widget ?child) {
             return bx.length!=0?Stack(
               children: widget.childView.asMap().keys.map((i) => Positioned(
                   left: getXLocation(i),

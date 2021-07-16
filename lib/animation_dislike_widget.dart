@@ -16,10 +16,10 @@ class AnimationlikeWidget extends StatefulWidget{
 }
 
 class AnimationlikeWidgetState extends State<AnimationlikeWidget> with TickerProviderStateMixin{
-  AnimationController controller;
-  Animation animation;
-  AnimationController likeController;
-  CurvedAnimation  likeAnimation;
+  late AnimationController controller;
+  late Animation animation;
+  late AnimationController likeController;
+  late CurvedAnimation  likeAnimation;
   bool disLikeEnd=false;
   bool likeEnd=false;
   @override
@@ -69,7 +69,7 @@ class AnimationlikeWidgetState extends State<AnimationlikeWidget> with TickerPro
       },
       child: AnimatedBuilder(
         animation: widget.isLike?animation:likeAnimation,
-        builder: (BuildContext ctx, Widget child){
+        builder: (BuildContext ctx, Widget?child){
           return new CustomPaint(
             size: countWidth(likeAnimation.value, widget.width),
             painter: new AnimationDislikePaint(animation.value,
@@ -115,7 +115,7 @@ class AnimationDislikePaint extends CustomPainter{
   bool disLikeEnd;
   bool likeEnd;
   double heartStrokeWidth;
-  AnimationDislikePaint(this.color,{this.isLike=false,this.start=false,this.center=30,this.disLikeEnd=false,this.likeEnd=false,this.heartStrokeWidth});
+  AnimationDislikePaint(this.color,{this.isLike=false,this.start=false,this.center=30,this.disLikeEnd=false,this.likeEnd=false,this.heartStrokeWidth=4});
 
   @override
   void paint(Canvas canvas, Size size) {

@@ -3,26 +3,19 @@ import 'package:flutter/material.dart';
 import 'dart:math' as math;
 class MultipleFabWidget extends StatefulWidget{
    List<Widget> children;
-   Widget openWidget;
+    Widget openWidget;
    double verticalSpace;
    double rightSpace;
 
-   MultipleFabWidget(this.children,
-      {this.openWidget = const FloatingActionButton(
-          backgroundColor: Colors.blueGrey,
-          child: IconButton(
-              icon: Icon(
-            Icons.add,
-            color: Colors.white,
-          )),
-          shape: CircleBorder()),
+    MultipleFabWidget(this.children,
+      {this.openWidget=const Icon(Icons.add, color: Colors.white),
       this.verticalSpace = 20,
       this.rightSpace = 10});
 
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-
+    //openWidget=IconButton(icon: Icon(Icons.add, color: Colors.white), onPressed: () {  },);
     return MultipleFabWidgetState(children,openWidget: openWidget,verticalSpace: verticalSpace,rightSpace: rightSpace);
   }
 }
@@ -34,21 +27,15 @@ class MultipleFabWidgetState extends State<MultipleFabWidget> with TickerProvide
   double verticalSpace;
   double rightSpace;
 
-  AnimationController controller;
-  CurvedAnimation  animation;
-  List<GlobalKey> keyArray=[];
-  List<double> heightArray=[];
+  late AnimationController controller;
+  late CurvedAnimation  animation;
+  late List<GlobalKey> keyArray=[];
+  late List<double> heightArray=[];
   int direction=0;
 
 
   MultipleFabWidgetState(this.children,
-      {this.openWidget = const FloatingActionButton(
-
-      child: IconButton(
-      icon: Icon(
-      Icons.add,
-      color: Colors.white,
-      ))),
+      {required this.openWidget,
       this.verticalSpace = 20,
       this.rightSpace = 10});
 
@@ -88,8 +75,8 @@ class MultipleFabWidgetState extends State<MultipleFabWidget> with TickerProvide
     });
 
     Future.delayed(Duration.zero,(){
-      keyArray.forEach((element) {heightArray.add(element.currentContext.size.height);
-      print(element.currentContext.size.height.toString());
+      keyArray.forEach((element) {heightArray.add(element.currentContext!.size!.height);
+      print(element.currentContext!.size!.height.toString());
       });
     });
 
@@ -106,7 +93,7 @@ class MultipleFabWidgetState extends State<MultipleFabWidget> with TickerProvide
 
           AnimatedBuilder(
             animation: animation,
-            builder: (BuildContext ctx, Widget child){
+            builder: (BuildContext ctx, Widget?child){
               return Positioned(
                   bottom: countBottomSpace(i),
                   right: widget.rightSpace,
