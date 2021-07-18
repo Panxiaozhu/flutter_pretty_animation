@@ -37,27 +37,23 @@ class _MyHomePageState extends State<MyHomePage> {
   final List<BottomNavigationBarItem> bottomNavItems = [
 
     BottomNavigationBarItem(
-      backgroundColor: Colors.blue,
       icon: Icon(Icons.school),
-      title: Text("首页"),
+      label: "首页",
     ),
 
     BottomNavigationBarItem(
-      backgroundColor: Colors.green,
       icon: Icon(Icons.message),
-      title: Text("消息"),
+      label: "信息",
     ),
 
     BottomNavigationBarItem(
-      backgroundColor: Colors.amber,
       icon: Icon(Icons.shopping_cart),
-      title: Text("购物车"),
+      label: "购物车",
     ),
 
     BottomNavigationBarItem(
-      backgroundColor: Colors.red,
       icon: Icon(Icons.person),
-      title: Text("个人中心"),
+      label: "我的",
     ),
 
   ];
@@ -96,18 +92,20 @@ class _MyHomePageState extends State<MyHomePage> {
           items: bottomNavItems,
            currentIndex: currentIndex,
            selectedLabelStyle: new TextStyle(
-              fontSize: 18
+              fontSize: 18,
+             color: Colors.blueAccent
            ),
            unselectedLabelStyle: new TextStyle(
-               fontSize: 18
+               fontSize: 18,
+               color: Colors.grey
            ),
            unselectedIconTheme: new IconThemeData(
               size: 30,
-              color: Colors.red
+              color: Colors.grey
            ),
            selectedIconTheme: new IconThemeData(
                size: 30,
-               color: Colors.green
+               color: Colors.blueAccent
            ),
            onTap: (index) {
              _changePage(index);

@@ -695,7 +695,7 @@ class _Label extends StatelessWidget {
     Widget text = DefaultTextStyle.merge(
       style: customStyle.copyWith(
         fontSize: selectedFontSize,
-        color: colorTween.evaluate(animation),
+        //color: colorTween.evaluate(animation),
       ),
       // The font size should grow here when active, but because of the way
       // font rendering works, it doesn't grow smoothly if we just animate

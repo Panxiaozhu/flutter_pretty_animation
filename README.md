@@ -38,3 +38,8 @@
   |rightSpace| 按钮右边距离|
 
   <img src="https://user-images.githubusercontent.com/12110768/122944217-3579ae00-d3aa-11eb-8976-a1d9497e5d60.gif" width="232" height="426" >
+
+  ## CustomBottomNavigationBar
+  修改BottomNavigationBar，自定义选中时动画
+
+   <img src="https://user-images.githubusercontent.com/12110768/126069618-3f042783-3480-4049-9029-3c9c313d5123.gif" width="232" height="426" >
