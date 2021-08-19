@@ -42,4 +42,4 @@
   ## CustomBottomNavigationBar
   修改BottomNavigationBar，自定义选中时动画
 
-   <img src="https://user-images.githubusercontent.com/12110768/126069618-3f042783-3480-4049-9029-3c9c313d5123.gif" width="232" height="426" >
+   <img src="https://user-images.githubusercontent.com/12110768/130090472-ebb0d2d2-da0a-4f19-9ef5-684dab98dc71.gif" width="232" height="426" >

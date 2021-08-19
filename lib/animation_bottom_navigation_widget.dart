@@ -8,7 +8,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/rendering.dart';
-import 'package:vector_math/vector_math_64.dart' show Vector3;
+//import 'package:vector_math/vector_math_64.dart' show Vector3;
 
 import 'commom/IconThemeDataA.dart';
 
@@ -540,20 +540,29 @@ class _BottomNavigationTile extends StatelessWidget {
       mouseCursor: mouseCursor,
       child: Padding(
         padding: EdgeInsets.only(top: topPadding, bottom: bottomPadding),
-        child: Column(
+        child:
+        Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            _TileIcon(
-              colorTween: colorTween!,
-              animation: animation,
-              iconSize: iconSize,
-              selected: selected,
-              item: item,
-              selectedIconTheme: selectedIconTheme,
-              unselectedIconTheme: unselectedIconTheme,
+
+            Stack(
+              children: [
+                Icon(Icons.school,color: Colors.white.withOpacity(0),size: 30,),
+
+                _TileIcon(
+                  colorTween: colorTween!,
+                  animation: animation,
+                  iconSize: iconSize,
+                  selected: selected,
+                  item: item,
+                  selectedIconTheme: selectedIconTheme,
+                  unselectedIconTheme: unselectedIconTheme,
+                ),
+              ],
             ),
+
             _Label(
               colorTween: colorTween!,
               animation: animation,
@@ -563,8 +572,11 @@ class _BottomNavigationTile extends StatelessWidget {
               showSelectedLabels: showSelectedLabels,
               showUnselectedLabels: showUnselectedLabels,
             ),
+
           ],
+
         ),
+
       ),
     );
 
@@ -700,18 +712,7 @@ class _Label extends StatelessWidget {
       // The font size should grow here when active, but because of the way
       // font rendering works, it doesn't grow smoothly if we just animate
       // the font size, so we use a transform instead.
-      child: Transform(
-        transform: Matrix4.diagonal3(
-          Vector3.all(
-            Tween<double>(
-              begin: unselectedFontSize! / selectedFontSize!,
-              end: 1.0,
-            ).evaluate(animation),
-          ),
-        ),
-        alignment: Alignment.bottomCenter,
-        child: item.title ?? Text(item.label!),
-      ),
+      child: item.title ?? Text(item.label!),
     );
 
     if (!showUnselectedLabels && !showSelectedLabels) {
