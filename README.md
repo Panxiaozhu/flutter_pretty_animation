@@ -46,5 +46,5 @@
 
    ## rive动画
    网址 https://rive.app/， 强大的制作动画工具
-   
-    <img src="https://user-images.githubusercontent.com/12110768/132090373-a3e37568-f5a9-4ded-be68-4c511b3e4354.gif" width="232" height="426" >
+
+   <img src="https://user-images.githubusercontent.com/12110768/132090373-a3e37568-f5a9-4ded-be68-4c511b3e4354.gif" width="232" height="426" >
