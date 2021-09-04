@@ -27,7 +27,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-
+  rive: ^0.7.28
   flutter_pretty_animation:
     path: ../
 
@@ -76,3 +76,11 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+assets:
+  - images/ss.riv
+  - images/h.riv
+  - images/a.riv
+  - images/b.riv
+  - images/c.riv
+  - images/d.riv
+  - images/dialog.riv

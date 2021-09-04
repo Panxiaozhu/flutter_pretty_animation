@@ -1,3 +1,5 @@
+## [2.0.4] - TODO: 2021-8-18.
+add rive animation
 ## [2.0.3] - TODO: 2021-7-18.
 change detail
 ## [2.0.2] - TODO: 2021-7-18.

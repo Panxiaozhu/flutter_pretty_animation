@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_pretty_animation/animation_bottom_navigation_widget.dart';
+import 'package:rive/rive.dart';
 
 void main() {
   runApp(MyApp());
@@ -30,49 +32,42 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  Artboard _riveArtboard;
+  RiveAnimationController _controller;
 
   int currentIndex=0;
   final pages = [Text('122'), Text('23232'), Text('343434'),Text('3434')];
 
-  final List<BottomNavigationBarItem> bottomNavItems = [
-
-    BottomNavigationBarItem(
-      icon: Icon(Icons.school),
-      label: "首页",
-    ),
-
-    BottomNavigationBarItem(
-      icon: Icon(Icons.message),
-      label: "信息",
-    ),
-
-    BottomNavigationBarItem(
-      icon: Icon(Icons.shopping_cart),
-      label: "购物车",
-    ),
-
-    BottomNavigationBarItem(
-      icon: Icon(Icons.person),
-      label: "我的",
-    ),
-
-  ];
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
 
+    rootBundle.load("images/dialog.riv").then((value) async {
+      final file = RiveFile.import(value);
+      final artboard = file.mainArtboard;
+      artboard.addController(_controller = SimpleAnimation('unselect'));
+      setState(() => _riveArtboard = artboard);
+    });
+
+    Future.delayed(Duration(milliseconds: 2000),(){
+        _riveArtboard.addController(_controller = SimpleAnimation('load'));
+    });
+
   }
 
-  void random(){
-
-  }
   /*切换页面*/
   void _changePage(int index) {
     /*如果点击的导航项不是当前项  切换 */
     if (index != currentIndex) {
       setState(() {
         currentIndex = index;
+        if(index==0){
+          _riveArtboard.addController(_controller = SimpleAnimation('select'));
+        }else{
+          _riveArtboard.addController(_controller = SimpleAnimation('unselect'));
+        }
+
       });
     }
   }
@@ -88,31 +83,45 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-       bottomNavigationBar: CustomBottomNavigationBar(
-          items: bottomNavItems,
-           currentIndex: currentIndex,
-           selectedLabelStyle: new TextStyle(
-              fontSize: 18,
-             color: Colors.blueAccent
-           ),
-           unselectedLabelStyle: new TextStyle(
-               fontSize: 18,
-               color: Colors.grey
-           ),
-           unselectedIconTheme: new IconThemeData(
-              size: 30,
-              color: Colors.grey
-           ),
-           selectedIconTheme: new IconThemeData(
-               size: 30,
-               color: Colors.blueAccent
-           ),
-           onTap: (index) {
-             _changePage(index);
-           },
 
-       ),
-       body:pages[currentIndex]
+       // CustomBottomNavigationBar(
+       //    items: bottomNavItems,
+       //     currentIndex: currentIndex,
+       //     selectedLabelStyle: new TextStyle(
+       //        fontSize: 18,
+       //       color: Colors.blueAccent
+       //     ),
+       //     unselectedLabelStyle: new TextStyle(
+       //         fontSize: 18,
+       //         color: Colors.grey
+       //     ),
+       //     unselectedIconTheme: new IconThemeData(
+       //        size: 30,
+       //        color: Colors.grey
+       //     ),
+       //     selectedIconTheme: new IconThemeData(
+       //         size: 30,
+       //         color: Colors.blueAccent
+       //     ),
+       //     onTap: (index) {
+       //       _changePage(index);
+       //     },
+       //
+       // ),
+       body:Center(
+         child: Column(
+           mainAxisAlignment: MainAxisAlignment.center,
+           children: [
+
+           Container(
+               width: 220,
+               height: 220,
+               child: _riveArtboard == null ?  Container(color: Colors.blue,) : Rive(artboard:_riveArtboard, alignment:Alignment.center, fit:BoxFit.contain, )
+           ),
+
+         ],)
+         ,)
+       //pages[currentIndex]
       // Center(
       //   child:  AnimationlikeWidget(isLike: false,width: 180,),
       // )
