@@ -48,3 +48,20 @@
    网址 https://rive.app/， 强大的制作动画工具
 
    <img src="https://user-images.githubusercontent.com/12110768/132090373-a3e37568-f5a9-4ded-be68-4c511b3e4354.gif" width="232" height="426" >
+
+   ## RiveBottomTab
+
+   rive 底部动态Tab，定义了五个tab item，中间悬浮突出按钮，适合使用圆形按钮
+
+    <img src="https://user-images.githubusercontent.com/12110768/133272309-e30dc302-7848-4bed-909c-75cf13823b35.gif" width="232" height="426" >
+
+    |参数 |说明|
+     | -------------|--------------|
+     |children| tab item|
+     |floatWidget| 中间悬浮按钮|
+     |floatText| 中间悬浮text|
+     |tabSelect| tab选中回调|
+     |centerRadius| 中间悬浮按钮半径 |
+
+
+

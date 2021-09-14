@@ -1,3 +1,4 @@
+import 'package:example/home_rive.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -33,7 +34,6 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   Artboard _riveArtboard;
-  RiveAnimationController _controller;
 
   int currentIndex=0;
   final pages = [Text('122'), Text('23232'), Text('343434'),Text('3434')];
@@ -46,12 +46,12 @@ class _MyHomePageState extends State<MyHomePage> {
     rootBundle.load("images/dialog.riv").then((value) async {
       final file = RiveFile.import(value);
       final artboard = file.mainArtboard;
-      artboard.addController(_controller = SimpleAnimation('unselect'));
+      artboard.addController(SimpleAnimation('unselect'));
       setState(() => _riveArtboard = artboard);
     });
 
     Future.delayed(Duration(milliseconds: 2000),(){
-        _riveArtboard.addController(_controller = SimpleAnimation('load'));
+        _riveArtboard.addController(SimpleAnimation('load'));
     });
 
   }
@@ -63,11 +63,10 @@ class _MyHomePageState extends State<MyHomePage> {
       setState(() {
         currentIndex = index;
         if(index==0){
-          _riveArtboard.addController(_controller = SimpleAnimation('select'));
+          _riveArtboard.addController(SimpleAnimation('select'));
         }else{
-          _riveArtboard.addController(_controller = SimpleAnimation('unselect'));
+          _riveArtboard.addController( SimpleAnimation('unselect'));
         }
-
       });
     }
   }
@@ -118,7 +117,16 @@ class _MyHomePageState extends State<MyHomePage> {
                height: 220,
                child: _riveArtboard == null ?  Container(color: Colors.blue,) : Rive(artboard:_riveArtboard, alignment:Alignment.center, fit:BoxFit.contain, )
            ),
-
+         
+          MaterialButton(
+            onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) {
+                  return HomeRivePage();
+                }));
+            },
+            child: Text('see rive tab'),
+          )             
+             
          ],)
          ,)
        //pages[currentIndex]
