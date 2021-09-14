@@ -5,4 +5,5 @@
 ![BBD](https://user-images.githubusercontent.com/12110768/122944234-37dc0800-d3aa-11eb-8d39-c95b759a5c0f.gif)
 ![tab](https://user-images.githubusercontent.com/12110768/130090472-ebb0d2d2-da0a-4f19-9ef5-684dab98dc71.gif)
 ![dialog](https://user-images.githubusercontent.com/12110768/132090373-a3e37568-f5a9-4ded-be68-4c511b3e4354.gif)
+![riveTab](https://user-images.githubusercontent.com/12110768/133272309-e30dc302-7848-4bed-909c-75cf13823b35.gif)
 
