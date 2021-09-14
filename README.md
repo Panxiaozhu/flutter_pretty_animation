@@ -53,16 +53,12 @@
 
    rive 底部动态Tab，定义了五个tab item，中间悬浮突出按钮，适合使用圆形按钮
 
-     |参数 |说明|
-     | -------------|--------------|
-     |children| tab item|
-     |floatWidget| 中间悬浮按钮|
-     |floatText| 中间悬浮text|
-     |tabSelect| tab选中回调|
-     |centerRadius| 中间悬浮按钮半径|
-
+   |参数 |说明|
+   | -------------|--------------|
+   |children| tab item|
+   |floatWidget| 中间悬浮按钮|
+   |floatText| 中间悬浮text|
+   |tabSelect| tab选中回调|
+   |centerRadius| 中间悬浮按钮半径|
+   
     <img src="https://user-images.githubusercontent.com/12110768/133272309-e30dc302-7848-4bed-909c-75cf13823b35.gif" width="232" height="426" >
-
-
-
-
