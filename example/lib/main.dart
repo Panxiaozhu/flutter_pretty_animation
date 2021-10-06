@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_pretty_animation/animation_bottom_navigation_widget.dart';
+import 'package:flutter_pretty_animation/pretty__elevated_button.dart';
 import 'package:rive/rive.dart';
 
 void main() {
@@ -37,23 +38,24 @@ class _MyHomePageState extends State<MyHomePage> {
 
   int currentIndex=0;
   final pages = [Text('122'), Text('23232'), Text('343434'),Text('3434')];
-
+   ProcessControler _processControler;
+  String tips='登录';
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
 
-    rootBundle.load("images/dialog.riv").then((value) async {
-      final file = RiveFile.import(value);
-      final artboard = file.mainArtboard;
-      artboard.addController(SimpleAnimation('unselect'));
-      setState(() => _riveArtboard = artboard);
-    });
-
-    Future.delayed(Duration(milliseconds: 2000),(){
-        _riveArtboard.addController(SimpleAnimation('load'));
-    });
-
+    // rootBundle.load("images/dialog.riv").then((value) async {
+    //   final file = RiveFile.import(value);
+    //   final artboard = file.mainArtboard;
+    //   artboard.addController(SimpleAnimation('unselect'));
+    //   setState(() => _riveArtboard = artboard);
+    // });
+    //
+    // Future.delayed(Duration(milliseconds: 2000),(){
+    //     _riveArtboard.addController(SimpleAnimation('load'));
+    // });
+    _processControler=new ProcessControler();
   }
 
   /*切换页面*/
@@ -73,9 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    int n=0;
-    n|=0x80;
-    print(n);
+
     return Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
@@ -112,20 +112,53 @@ class _MyHomePageState extends State<MyHomePage> {
            mainAxisAlignment: MainAxisAlignment.center,
            children: [
 
-           Container(
-               width: 220,
-               height: 220,
-               child: _riveArtboard == null ?  Container(color: Colors.blue,) : Rive(artboard:_riveArtboard, alignment:Alignment.center, fit:BoxFit.contain, )
-           ),
-         
-          MaterialButton(
-            onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) {
-                  return HomeRivePage();
-                }));
-            },
-            child: Text('see rive tab'),
-          )             
+             PrettyElevatedButton(
+                 style: ButtonStyle(
+                   minimumSize: MaterialStateProperty.all(Size(150, 45)),
+                   backgroundColor: MaterialStateProperty.resolveWith((states) {
+                     //设置按下时的背景颜色
+                     if (states.contains(MaterialState.pressed)) {
+                       return Colors.blue[200];
+                     }
+                     return Colors.blue;
+                   }),
+                 ),
+                 onPressed: () {
+                   _processControler.setLoad();
+                   // Future.delayed(Duration(milliseconds: 2000), () {
+                   //   _processControler.setSuccess();
+                   //   tips='登录成功';
+                   //   setState(() {
+                   //
+                   //   });
+                   // });
+                   Future.delayed(Duration(milliseconds: 2000), () {
+                     _processControler.setFail();
+                     tips='密码错误';
+                     setState(() {
+
+                     });
+                   });
+                 },
+                 icon: Icon(Icons.autorenew_rounded),
+                 label: Text(tips),
+                 processControler: _processControler
+             )
+
+          //  Container(
+          //      width: 220,
+          //      height: 220,
+          //      child: _riveArtboard == null ?  Container(color: Colors.blue,) : Rive(artboard:_riveArtboard, alignment:Alignment.center, fit:BoxFit.contain, )
+          //  ),
+          //
+          // MaterialButton(
+          //   onPressed: (){
+          //       Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) {
+          //         return HomeRivePage();
+          //       }));
+          //   },
+          //   child: Text('see rive tab'),
+          // )
              
          ],)
          ,)

@@ -62,3 +62,18 @@
    |centerRadius| 中间悬浮按钮半径|
 
    <img src="https://user-images.githubusercontent.com/12110768/133272309-e30dc302-7848-4bed-909c-75cf13823b35.gif" width="232" height="426" >
+
+   ## PrettyElevatedButton
+
+   在ElevatedButton基础上构造函数添加了ProcessControler对象，控制按钮图标动画状态
+
+   |状态 |方法|
+   | -------------|--------------|
+   |正常| setNormal|
+   |执行| setLoad|
+   |执行成功| setSuccess|
+   |执行错误| setFail|
+
+
+   <img src="https://user-images.githubusercontent.com/12110768/136210037-5f69ba2c-67a4-4acd-b10b-045ef8d31855.gif" width="232" height="426" >
+   <img src="https://user-images.githubusercontent.com/12110768/136210051-5852d287-a945-40e1-b5ed-e199f74b1ab6.gif" width="232" height="426" >

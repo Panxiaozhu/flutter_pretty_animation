@@ -1,3 +1,5 @@
+## [2.0.6] - TODO: 2021-10-2.
+add load button
 ## [2.0.5] - TODO: 2021-9-11.
 add rive tab
 ## [2.0.4] - TODO: 2021-8-18.
