@@ -7,3 +7,5 @@
 ![dialog](https://user-images.githubusercontent.com/12110768/132090373-a3e37568-f5a9-4ded-be68-4c511b3e4354.gif)
 ![riveTab](https://user-images.githubusercontent.com/12110768/133272309-e30dc302-7848-4bed-909c-75cf13823b35.gif)
 
+![loadSuccess](https://user-images.githubusercontent.com/12110768/136210037-5f69ba2c-67a4-4acd-b10b-045ef8d31855.gif)
+![loadFail](https://user-images.githubusercontent.com/12110768/136210051-5852d287-a945-40e1-b5ed-e199f74b1ab6.gif)
